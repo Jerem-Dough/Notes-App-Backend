@@ -6,18 +6,15 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const app = express();
 
-// Middleware
 app.use(cors({
   origin: '*',
 }));
 app.use(express.json());
 
-// MongoDB Connection (removed deprecated options)
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// User and Note Schemas
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -34,7 +31,6 @@ const noteSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 const Note = mongoose.model('Note', noteSchema);
 
-// User Signup
 app.post('/api/signup', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -52,7 +48,6 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-// User Login
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -70,7 +65,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Middleware for Authentication
 const auth = (req, res, next) => {
   const token = req.headers['authorization']?.split(' ')[1];
   if (!token) return res.status(401).json({ message: 'Unauthorized' });
@@ -85,7 +79,6 @@ const auth = (req, res, next) => {
   }
 };
 
-// CRUD Routes for Notes
 app.get('/api/notes', auth, async (req, res) => {
   try {
     const notes = await Note.find({ userId: req.userId });
@@ -149,7 +142,6 @@ app.delete('/api/notes/:id', auth, async (req, res) => {
   }
 });
 
-// Default Route
 app.get('/', (req, res) => {
   res.send('Welcome to the Notes App API');
 });
