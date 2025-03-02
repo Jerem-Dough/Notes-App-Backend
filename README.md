@@ -27,13 +27,13 @@ A web-based notes application with user authentication, CRUD functionality, and 
    - Backend is now running on http://localhost:5000.
 
 ## **API Endpoints**
-Endpoint	      Method	  Description
-/api/signup	    POST	    Register a new user
-/api/login	    POST	    Authenticate user and return JWT
-/api/notes	    GET	      Fetch all notes (requires auth)
-/api/notes/:id	GET	      Fetch a single note (requires auth)
-/api/notes	    POST	    Create a new note (requires auth)
-/api/notes/:id	PUT	      Update an existing note (requires auth)
-/api/notes/:id	DELETE	  Delete a note (requires auth)
+Endpoint	      Method	  Description  
+/api/signup	    POST	    Register a new user  
+/api/login	    POST	    Authenticate user and return JWT  
+/api/notes	    GET	      Fetch all notes (requires auth)  
+/api/notes/:id	GET	      Fetch a single note (requires auth)  
+/api/notes	    POST	    Create a new note (requires auth)  
+/api/notes/:id	PUT	      Update an existing note (requires auth)  
+/api/notes/:id	DELETE	  Delete a note (requires auth)  
 
   
