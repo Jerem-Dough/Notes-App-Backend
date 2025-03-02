@@ -16,17 +16,14 @@ A web-based notes application with user authentication, CRUD functionality, and 
 
 ## **Deployment**
 
-- **Node.js** installed
-- **MongoDB Atlas or local MongoDB instance running**
-
 **Steps to Run Locally**
-1. Ensure JavaScript and NPM are installed, with PATH variables added accordingly.
+1. Ensure JavaScript, NPM, and Node.js are installed, with PATH variables added accordingly.
 2. Clone the repository: git clone https://github.com/Jerem-Dough/Notes-App-Backend.git
 3. Navigate to the working directory:
    - Navigate to .env file. Configure 'MONGO_URI' and 'JWT_SECRET' variables. (Not required for local testing)
    - cd your-backend-directory
    - npm install
-   - npm run
+   - npm start
    - Backend is now running on http://localhost:5000.
 
 ## **API Endpoints**
